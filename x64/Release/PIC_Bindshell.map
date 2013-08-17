@@ -1,0 +1,27 @@
+ PIC_Bindshell
+
+ Timestamp is 520f67fc (Sat Aug 17 08:09:32 2013)
+
+ Preferred load address is 0000000140000000
+
+ Start         Length     Name                   Class
+ 0001:00000000 000002d6H .text                   CODE
+ 0002:00000000 0000002cH .xdata                  DATA
+ 0002:0000002c 00000000H .edata                  DATA
+ 0003:00000000 00000018H .pdata                  DATA
+
+  Address         Publics by Value              Rva+Base               Lib:Object
+
+ 0001:00000000       Begin                      0000000140001000 f   BindShell.obj
+ 0001:00000008       GetProcAddressWithHash     0000000140001008 f   BindShell.obj
+ 0001:00000104       ExecutePayload             0000000140001104 f   BindShell.obj
+ 0001:000002c0       AlignRSP                   00000001400012c0 f   AdjustStack.obj
+
+ entry point at        0001:00000000
+
+ Static symbols
+
+ 0002:00000000       $unwind$ExecutePayload     0000000140002000     * CIL library *:* CIL module *
+ 0002:0000001c       $unwind$GetProcAddressWithHash 000000014000201c     * CIL library *:* CIL module *
+ 0003:00000000       $pdata$GetProcAddressWithHash 0000000140003000     * CIL library *:* CIL module *
+ 0003:0000000c       $pdata$ExecutePayload      000000014000300c     * CIL library *:* CIL module *
