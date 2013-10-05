@@ -180,7 +180,7 @@
       </Message>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>powershell.exe -NoProfile -ExecutionPolicy Bypass -File $(ProjectDir)Out-Shellcode.ps1 $(OutDir)$(TargetName)$(TargetExt) $(ProjectDir) $(OutDir)$(TargetName).map $(OutDir)$(TargetName)_shellcode.bin</Command>
+      <Command>powershell.exe -NoProfile -ExecutionPolicy Bypass -File $(SolutionDir)lib\PowerShell\Out-Shellcode.ps1 $(OutDir)$(TargetName)$(TargetExt) $(ProjectDir) $(OutDir)$(TargetName).map $(OutDir)$(TargetName)_shellcode.bin</Command>
     </PostBuildEvent>
     <PostBuildEvent>
       <Message>Extract position independent shellcode</Message>
@@ -378,7 +378,7 @@
       <Command />
     </PostBuildEvent>
     <PostBuildEvent>
-      <Command>powershell.exe -NoProfile -ExecutionPolicy Bypass -File $(ProjectDir)Out-Shellcode.ps1 $(OutDir)$(TargetName)$(TargetExt) $(ProjectDir) $(OutDir)$(TargetName).map $(OutDir)$(TargetName)_shellcode.bin</Command>
+      <Command>powershell.exe -NoProfile -ExecutionPolicy Bypass -File $(SolutionDir)lib\PowerShell\Out-Shellcode.ps1 $(OutDir)$(TargetName)$(TargetExt) $(ProjectDir) $(OutDir)$(TargetName).map $(OutDir)$(TargetName)_shellcode.bin</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -526,13 +526,13 @@
       </VerboseOutput>
     </Manifest>
     <PreBuildEvent>
-      <Command>ml64 /nologo /c /Cx /Fo $(IntDir)\AdjustStack.obj AdjustStack.asm</Command>
+      <Command>ml64 /nologo /c /Cx /Fo $(ProjectDir)$(IntDir)AdjustStack.obj $(ProjectDir)AdjustStack.asm</Command>
     </PreBuildEvent>
     <PreBuildEvent>
       <Message>Build AdjustStack.asm</Message>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>powershell.exe -NoProfile -ExecutionPolicy Bypass -File $(ProjectDir)Out-Shellcode.ps1 $(OutDir)$(TargetName)$(TargetExt) $(ProjectDir) $(OutDir)$(TargetName).map $(OutDir)$(TargetName)_shellcode.bin</Command>
+      <Command>powershell.exe -NoProfile -ExecutionPolicy Bypass -File $(SolutionDir)lib\PowerShell\Out-Shellcode.ps1 $(OutDir)$(TargetName)$(TargetExt) $(ProjectDir) $(OutDir)$(TargetName).map $(OutDir)$(TargetName)_shellcode.bin</Command>
     </PostBuildEvent>
     <PostBuildEvent>
       <Message>Extract position independent shellcode</Message>
