@@ -26,7 +26,10 @@ $PE = Get-PEHeader $InputExe -GetSectionData
 $TextSection = $PE.SectionHeaders | Where-Object { $_.Name -eq '.text' }
 
 $MapContents = Get-Content $InputMapFile
-$TextSectionInfo = @($MapContents | Where-Object { $_ -match '\.text\W+CODE' })[0]
+#
+#$TextSectionInfo = @($MapContents | Where-Object { $_ -match '\.text\W+CODE' })[0]
+$TextSectionInfo = @($MapContents | Where-Object { $_ -match 'CODE' })[0]
+# Possible fix for VS 2017, sufficient to match on just CODE in line.
 
 $ShellcodeLength = [Int] "0x$(( $TextSectionInfo -split ' ' | Where-Object { $_ } )[1].TrimEnd('H'))" - 1
 
